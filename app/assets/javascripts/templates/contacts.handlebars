@@ -1,10 +1,15 @@
 <h1>Wikipage With Ember</h1>
+<div class='col-md-8'>
+  <ul>
+    {{#each contact in controller itemController='contact'}}
+      <li>{{#link-to 'contact' contact}}{{contact.name}}{{/link-to}}
+        <button {{action deleteContact}} class="btn btn-danger btn-xs">Delete</button></li>
+    {{/each}}
+  </ul>
 
-<ul>
-  {{#each contact in controller itemController='contact'}}
-    <li>{{#link-to 'contact' contact}}{{contact.name}}{{/link-to}}
-      <button {{action deleteContact}} class="btn btn-danger btn-xs">Delete</button></li>
-  {{/each}}
-</ul>
+  {{#link-to 'new_contact'}}New contact{{/link-to}}
+</div>
 
-{{#link-to 'new_contact'}}New contact{{/link-to}}
+<div class='col-md-4'>
+  {{outlet}}
+</div>
