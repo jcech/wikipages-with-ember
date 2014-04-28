@@ -7,6 +7,9 @@ WikipagesWithEmber.NewContactController = Ember.ObjectController.extend({
       model.save()
       .then(function() {
         controller.transitionToRoute('contact', model);
+      })
+      .catch(function() {
+        alert("Please fix the problems noted in red.")
       });
     }
   }
